@@ -6,15 +6,15 @@ function showHibaUzenet(uzenet) {
             ${uzenet}
         </div>
     `;
-
     // 5 másodperc után töröljük
     setTimeout(() => {
         container.innerHTML = '';
     }, 5000);
 }
-function elsoFeladat() {
 
-    document.querySelector('.eredmeny').innerHTML = "";
+function masodikfeladat()
+{
+   document.querySelector('.eredmeny').innerHTML = "";
 
     let alpha = Number(document.getElementById("alphaSzog")?.value);
     let beta = Number(document.getElementById("betaSzog")?.value);
@@ -30,44 +30,40 @@ function elsoFeladat() {
     }
 
         //OLDALAK
-    if (aOldal != 0) {
+    if (aOldal >= 0) {
         document.querySelector('.eredmeny').innerHTML += `<p>a: ${aOldal}°</p>`;
     } else {
         document.querySelector('.eredmeny').innerHTML += `<p>a: ismeretlen</p>`;
     }
 
-    if (bOldal != 0) {
+    if (bOldal >= 0) {
         document.querySelector('.eredmeny').innerHTML += `<p>b: ${bOldal}°</p>`;
     } else {
         document.querySelector('.eredmeny').innerHTML += `<p>b: ismeretlen</p>`;
     }
 
-    if (cOldal != 0) {
+    if (cOldal >= 0) {
         document.querySelector('.eredmeny').innerHTML += `<p>c: ${cOldal}°</p>`;
     } else {
         document.querySelector('.eredmeny').innerHTML += `<p>c: ismeretlen</p>`;
     }
 
     //SZÖGEK
-    if (alpha != 0) {
+    if (alpha >= 0) {
         document.querySelector('.eredmeny').innerHTML += `<p>Alpha: ${alpha}°</p>`;
     } else {
         document.querySelector('.eredmeny').innerHTML += `<p>Alpha: ismeretlen</p>`;
     }
 
-    if (beta != 0) {
+    if (beta >= 0) {
         document.querySelector('.eredmeny').innerHTML += `<p>Beta: ${beta}°</p>`;
     } else {
         document.querySelector('.eredmeny').innerHTML += `<p>Beta: ismeretlen</p>`;
     }
 
-    if (gamma != 0) {
+    if (gamma >= 0) {
         document.querySelector('.eredmeny').innerHTML += `<p>Gamma: ${gamma}°</p>`;
     } else {
         document.querySelector('.eredmeny').innerHTML += `<p>Gamma: ismeretlen</p>`;
     }
-
-    //2 adat segítségével kiszámolja az adatokat
-    // pl két szög: 180-a szög - b szög = c szög
-    // pl két oldal: a^2 + b^2 = c^ / √ => c oldal
 }
