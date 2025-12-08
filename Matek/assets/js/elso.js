@@ -14,7 +14,7 @@ function showHibaUzenet(uzenet) {
 }
 function elsoFeladat() {
 
-    document.querySelector('.eredmeny').innerHTML = "";
+    document.querySelector('.eredmeny').innerHTML = "<div></div><div></div><div></div>";
 
     let alpha = Number(document.getElementById("alphaSzog")?.value);
     let beta = Number(document.getElementById("betaSzog")?.value);
@@ -29,42 +29,29 @@ function elsoFeladat() {
         return;
     }
 
-        //OLDALAK
+    
+    //OLDALAK
     if (aOldal != 0) {
-        document.querySelector('.eredmeny').innerHTML += `<p>a: ${aOldal}°</p>`;
+        document.querySelectorAll('.eredmeny div')[0].innerHTML += `a: ${aOldal}`;
     } else {
-        document.querySelector('.eredmeny').innerHTML += `<p>a: ismeretlen</p>`;
+        document.querySelector('.eredmeny div')[1].innerHTML += `a: ismeretlen`;
     }
 
     if (bOldal != 0) {
-        document.querySelector('.eredmeny').innerHTML += `<p>b: ${bOldal}°</p>`;
+        document.querySelector('.eredmeny div').innerHTML += `<p>b: ${bOldal}</p>`;
     } else {
-        document.querySelector('.eredmeny').innerHTML += `<p>b: ismeretlen</p>`;
+        document.querySelector('.eredmeny div').innerHTML += `<p>b: ismeretlen</p>`;
     }
 
     if (cOldal != 0) {
-        document.querySelector('.eredmeny').innerHTML += `<p>c: ${cOldal}°</p>`;
+        document.querySelector('.eredmeny div').innerHTML += `<p>c: ${cOldal}</p>`;
     } else {
-        document.querySelector('.eredmeny').innerHTML += `<p>c: ismeretlen</p>`;
+        document.querySelector('.eredmeny div').innerHTML += `<p>c: ismeretlen</p>`;
     }
-
-    //SZÖGEK
-    if (alpha != 0) {
-        document.querySelector('.eredmeny').innerHTML += `<p>Alpha: ${alpha}°</p>`;
-    } else {
-        document.querySelector('.eredmeny').innerHTML += `<p>Alpha: ismeretlen</p>`;
-    }
-
-    if (beta != 0) {
-        document.querySelector('.eredmeny').innerHTML += `<p>Beta: ${beta}°</p>`;
-    } else {
-        document.querySelector('.eredmeny').innerHTML += `<p>Beta: ismeretlen</p>`;
-    }
-
-    if (gamma != 0) {
-        document.querySelector('.eredmeny').innerHTML += `<p>Gamma: ${gamma}°</p>`;
-    } else {
-        document.querySelector('.eredmeny').innerHTML += `<p>Gamma: ismeretlen</p>`;
+    //tétel számítása
+    if (aOldal != 0 && bOldal != 0) {
+        let megoldas = aOldal**2 + bOldal**2
+        document.querySelector('.eredmeny').innerHTML += `<p>c: ${megoldas}</p>`;
     }
 
     //2 adat segítségével kiszámolja az adatokat
