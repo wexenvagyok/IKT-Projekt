@@ -1,313 +1,137 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>3. Feladat - Függvények</title>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/main.css" rel="stylesheet">
-  <style>
-    .controls { max-width: 1100px; margin: 1.5rem auto; }
-    canvas { width: 100%; height: 500px; background: #fff; border: 1px solid #ddd; }
-    .small { font-size: .9rem; }
-    .coord-info { font-family: monospace; }
-  </style>
-</head>
-<body class="index-page">
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container position-relative d-flex align-items-center justify-content-between">
-
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <h1 class="sitename">MATEK</h1><span>.</span>
-        <h1 class="sitename">WEB</h1>
-      </a>
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="./index.html">Főoldal</a></li>
-          <li><a href="./elsoFeladat.html">1. Feladat</a></li>
-          <li><a href="./masodikFeladat.html">2. Feladat</a></li>
-          <li><a href="./harmadikFeladat.html" class="active">3. Feladat</a></li>
-          <li><a href="./negyedikFeladat.html">4. Feladat</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-
-    </div>
-  </header>
-
-  <main class="main container">
-    <div class="controls">
-      <h2>Függvények ábrázolása (1. és 2. fok)</h2>
-      <p class="small">Add meg az együtthatókat, majd kattints a <strong>Rajzolás</strong> gombra.</p>
-
-      <div class="row gy-3">
-        <div class="col-lg-6">
-          <div class="card p-3">
-            <h5>Elsőfokú: y = m·x + b</h5>
-            <div class="mb-2">
-              <label class="form-label">m (meredekség)</label>
-              <input id="lin-m" type="number" class="form-control" value="0" step="any">
-            </div>
-            <div class="mb-2">
-              <label class="form-label">b (y tengelymetszet)</label>
-              <input id="lin-b" type="number" class="form-control" value="0" step="any">
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="" id="showLinear" checked>
-              <label class="form-check-label small" for="showLinear">Elsőfokú függvény megjelenítése</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-6">
-          <div class="card p-3">
-            <h5>Másodfokú: y = a·x² + b·x + c</h5>
-            <div class="mb-2">
-              <label class="form-label">a</label>
-              <input id="quad-a" type="number" class="form-control" value="0" step="any">
-            </div>
-            <div class="mb-2">
-              <label class="form-label">b</label>
-              <input id="quad-b" type="number" class="form-control" value="0" step="any">
-            </div>
-            <div class="mb-2">
-              <label class="form-label">c</label>
-              <input id="quad-c" type="number" class="form-control" value="0" step="any">
-            </div>
-            <div class="form-check mb-2">
-              <input class="form-check-input" type="checkbox" value="" id="showQuad" checked>
-              <label class="form-check-label small" for="showQuad">Másodfokú függvény megjelenítése</label>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 d-flex gap-2 align-items-center">
-          <button id="drawBtn" class="btn btn-primary">Rajzolás</button>
-          <button id="resetBtn" class="btn btn-outline-secondary">Alaphelyzet</button>
-          <div class="ms-auto coord-info" id="info"></div>
-        </div>
-
-        <div class="col-12">
-          <canvas id="graphCanvas" width="1200" height="700"></canvas>
-        </div>
-
-      </div>
-    </div>
-  </main>
-
-  <footer id="footer" class="footer">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">MATEMATIKA</span>
-          </a>
-          <p>Készült a 2025/26-os tanévben, IKT Projektmunka órára.<br>Rózsás Viktor Szilárd<br>Gyarmati Gábor<br>Farkas Balázs</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MATEMATIKA</strong> <span>All Rights Reserved</span></p>
-
-    </div>
-
-  </footer>
-
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-
-  <script>
-    // Canvas es koordinata ertek
-    const canvas = document.getElementById('graphCanvas');
-    const ctx = canvas.getContext('2d');
-
-    // logikai koordinata tartomany
-    let view = { xMin: -10, xMax: 10, yMin: -6, yMax: 6 };
-
-    function resizeCanvasForHiDPI() {
-      const ratio = window.devicePixelRatio || 1;
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      canvas.width = Math.round(w * ratio);
-      canvas.height = Math.round(h * ratio);
-      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    }
-
-    function toCanvasX(x) { return (x - view.xMin) / (view.xMax - view.xMin) * canvas.clientWidth; }
-    function toCanvasY(y) { return canvas.clientHeight - (y - view.yMin) / (view.yMax - view.yMin) * canvas.clientHeight; }
-
-    function clear() {
-      ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-    }
-
-    // Rajz fuggvenyek
-    function drawGrid() {
-      const w = canvas.clientWidth;
-      const h = canvas.clientHeight;
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(0,0,w,h);
-
-      ctx.strokeStyle = '#eee';
-      ctx.lineWidth = 1;
-      for (let x = Math.ceil(view.xMin); x <= view.xMax; x++) {
-        const cx = toCanvasX(x);
-        ctx.beginPath(); ctx.moveTo(cx,0); ctx.lineTo(cx,h); ctx.stroke();
-      }
-      for (let y = Math.ceil(view.yMin); y <= view.yMax; y++) {
-        const cy = toCanvasY(y);
-        ctx.beginPath(); ctx.moveTo(0,cy); ctx.lineTo(w,cy); ctx.stroke();
-      }
-
-      ctx.strokeStyle = '#333';
-      ctx.lineWidth = 2;
-      if (view.xMin <= 0 && view.xMax >= 0) {
-        const cx = toCanvasX(0);
-        ctx.beginPath(); ctx.moveTo(cx,0); ctx.lineTo(cx,h); ctx.stroke();
-      }
-      if (view.yMin <= 0 && view.yMax >= 0) {
-        const cy = toCanvasY(0);
-        ctx.beginPath(); ctx.moveTo(0,cy); ctx.lineTo(w,cy); ctx.stroke();
-      }
-
-      ctx.fillStyle = '#333';
-      ctx.font = '12px Arial';
-      ctx.textAlign = 'left';
-      ctx.textBaseline = 'top';
-      for (let x = Math.ceil(view.xMin); x <= view.xMax; x++) {
-        const cx = toCanvasX(x);
-        const cy = toCanvasY(0);
-        if (cx>=0 && cx<=w && cy>=0 && cy<=h) ctx.fillText(String(x), cx + 4, cy + 4);
-      }
-      for (let y = Math.ceil(view.yMin); y <= view.yMax; y++) {
-        const cx = toCanvasX(0);
-        const cy = toCanvasY(y);
-        if (cx>=0 && cx<=w && cy>=0 && cy<=h) ctx.fillText(String(y), Math.max(4, cx+4), cy - 12);
-      }
-    }
-
-    function plotFunction(f, color='#f00', width=2) {
-      ctx.strokeStyle = color;
-      ctx.lineWidth = width;
-      ctx.beginPath();
-      const steps = canvas.clientWidth;
-      for (let i = 0; i <= steps; i++) {
-        const t = i / steps;
-        const x = view.xMin + t * (view.xMax - view.xMin);
-        const y = f(x);
-        const cx = toCanvasX(x);
-        const cy = toCanvasY(y);
-        if (i===0) ctx.moveTo(cx, cy);
-        else ctx.lineTo(cx, cy);
-      }
-      ctx.stroke();
-    }
-
-    function drawMarkers(points, color='#000'){
-      ctx.fillStyle = color;
-      for (const p of points) {
-        const cx = toCanvasX(p.x);
-        const cy = toCanvasY(p.y);
-        ctx.beginPath(); ctx.arc(cx,cy,4,0,Math.PI*2); ctx.fill();
-      }
-    }
-
-    function drawAll() {
-      resizeCanvasForHiDPI();
-      clear();
-      drawGrid();
-
-      const showLinear = document.getElementById('showLinear').checked;
-      const showQuad = document.getElementById('showQuad').checked;
-
-      const m = parseFloat(document.getElementById('lin-m').value) || 0;
-      const b = parseFloat(document.getElementById('lin-b').value) || 0;
-      const a = parseFloat(document.getElementById('quad-a').value) || 0;
-      const bb = parseFloat(document.getElementById('quad-b').value) || 0;
-      const c = parseFloat(document.getElementById('quad-c').value) || 0;
-
-      const infoEl = document.getElementById('info');
-      infoEl.textContent = '';
-
-      if (showLinear) {
-        plotFunction(x => m*x + b, '#007bff', 2);
-        const yAt0 = b;
-        drawMarkers([{x:0,y:yAt0}], '#007bff');
-        infoEl.textContent += `Elsofoku: y=${m}x+${b} `;
-      }
-
-      if (showQuad) {
-        plotFunction(x => a*x*x + bb*x + c, '#e83e8c', 2);
-        if (a !== 0) {
-          const vx = -bb/(2*a);
-          const vy = a*vx*vx + bb*vx + c;
-          drawMarkers([{x:vx,y:vy}], '#e83e8c');
-          const D = bb*bb - 4*a*c;
-          if (D >= 0) {
-            const r1 = (-bb + Math.sqrt(D)) / (2*a);
-            const r2 = (-bb - Math.sqrt(D)) / (2*a);
-            drawMarkers([{x:r1,y:0},{x:r2,y:0}], '#28a745');
-            infoEl.textContent += `Masodfoku: y=${a}x^2+${bb}x+${c} (gyokok: ${r1.toFixed(3)}, ${r2.toFixed(3)})`;
-          } else {
-            infoEl.textContent += `Masodfoku: y=${a}x^2+${bb}x+${c} (nincs valos gyok)`;
-          }
-        } else {
-          infoEl.textContent += `Masodfoku: a=0 -> y=${bb}x+${c}`;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. és 2. fokú függvények ábrázolása</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
         }
-      }
-    }
+        canvas {
+            border: 1px solid black;
+            display: block;
+            margin: 20px auto;
+        }
+        .input-container {
+            margin-bottom: 20px;
+        }
+        input {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>1. és 2. fokú függvények ábrázolása</h1>
 
-    // Események
-    document.getElementById('drawBtn').addEventListener('click', () => { drawAll(); });
+    <div class="input-container">
+        <h3>Adja meg az együtthatókat:</h3>
+        <div>
+            <label for="m">Lineáris függvény: y = mx + b</label><br>
+            <label for="m">m:</label>
+            <input type="number" id="m" value="0" step="any">
+            <label for="b">b:</label>
+            <input type="number" id="b" value="0" step="any">
+        </div>
+        <div>
+            <label for="a">Másodfokú függvény: y = ax² + bx + c</label><br>
+            <label for="a">a:</label>
+            <input type="number" id="a" value="0" step="any">
+            <label for="b2">b:</label>
+            <input type="number" id="b2" value="0" step="any">
+            <label for="c">c:</label>
+            <input type="number" id="c" value="0" step="any">
+        </div>
+        <button onclick="rajzol()">Frissítés</button>
+    </div>
 
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      document.getElementById('lin-m').value = 0;
-      document.getElementById('lin-b').value = 0;
-      document.getElementById('quad-a').value = 0;
-      document.getElementById('quad-b').value = 0;
-      document.getElementById('quad-c').value = 0;
-      document.getElementById('showLinear').checked = true;
-      document.getElementById('showQuad').checked = true;
-      drawAll();
-    });
+    <canvas id="graph" width="500" height="500"></canvas>
 
-    window.addEventListener('load', () => {
-      if (!canvas.clientWidth) {
-        canvas.style.width = '100%';
-        canvas.style.height = '500px';
-      }
-      drawAll();
-      window.addEventListener('resize', () => drawAll());
-    });
+    <script>
+        const canvas = document.getElementById('graph');
+        const ctx = canvas.getContext('2d');
+        const width = canvas.width;
+        const height = canvas.height;
 
-    canvas.addEventListener('mousemove', (ev) => {
-      const rect = canvas.getBoundingClientRect();
-      const cx = ev.clientX - rect.left;
-      const cy = ev.clientY - rect.top;
-      const x = view.xMin + (cx / canvas.clientWidth) * (view.xMax - view.xMin);
-      const y = view.yMax - (cy / canvas.clientHeight) * (view.yMax - view.yMin);
-      document.getElementById('info').textContent = `x=${x.toFixed(2)}, y=${y.toFixed(2)}`;
-    });
+        const originX = width / 2;
+        const originY = height / 2;
 
-    canvas.addEventListener('mouseleave', () => { drawAll(); });
-  </script>
+        function rajzoljTengelyeket() {
+            ctx.beginPath();
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 1;
+            ctx.moveTo(0, originY);
+            ctx.lineTo(width, originY);
+            ctx.moveTo(originX, 0);
+            ctx.lineTo(originX, height);
+            ctx.stroke();
 
+            ctx.beginPath();
+            for (let i = 0; i <= width; i += 20) {
+                ctx.moveTo(i, originY - 4);
+                ctx.lineTo(i, originY + 4);
+            }
+            for (let j = 0; j <= height; j += 20) {
+                ctx.moveTo(originX - 4, j);
+                ctx.lineTo(originX + 4, j);
+            }
+            ctx.stroke();
+        }
+
+        function linearisFuggveny(x, m, b) {
+            return m * x + b;
+        }
+
+        function masodfokuFuggveny(x, a, b, c) {
+            return a * Math.pow(x, 2) + b * x + c;
+        }
+
+        function plotFunction(fn, color, scale) {
+            ctx.beginPath();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            let started = false;
+            for (let px = -originX; px <= originX; px++) {
+                const xLogical = px / scale;
+                const yLogical = fn(xLogical);
+                const cx = originX + px;
+                const cy = originY - yLogical * scale;
+                if (!started) {
+                    ctx.moveTo(cx, cy);
+                    started = true;
+                } else {
+                    ctx.lineTo(cx, cy);
+                }
+            }
+            ctx.stroke();
+        }
+
+        function rajzoljFuggvenyeket(m, b, a, b2, c) {
+            ctx.clearRect(0, 0, width, height);
+            rajzoljTengelyeket();
+
+            const scale = 20;
+
+            plotFunction(x => linearisFuggveny(x, m, b), 'blue', scale);
+
+            plotFunction(x => masodfokuFuggveny(x, a, b2, c), 'red', scale);
+        }
+
+        function rajzol() {
+            const m = parseFloat(document.getElementById('m').value) || 0;
+            const b = parseFloat(document.getElementById('b').value) || 0;
+            const a = parseFloat(document.getElementById('a').value) || 0;
+            const b2 = parseFloat(document.getElementById('b2').value) || 0;
+            const c = parseFloat(document.getElementById('c').value) || 0;
+
+            rajzoljFuggvenyeket(m, b, a, b2, c);
+        }
+
+        window.addEventListener('load', () => {
+            rajzoljTengelyeket();
+            rajzol();
+        });
+    </script>
 </body>
 </html>
