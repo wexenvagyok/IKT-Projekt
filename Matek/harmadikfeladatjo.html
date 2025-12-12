@@ -57,64 +57,81 @@
         const originX = width / 2;
         const originY = height / 2;
 
-        // Koordináta-rendszer kirajzolása
         function rajzoljTengelyeket() {
             ctx.beginPath();
-            ctx.moveTo(0, originY);
-            ctx.lineTo(width, originY); // X tengely
-            ctx.moveTo(originX, 0);
-            ctx.lineTo(originX, height); // Y tengely
             ctx.strokeStyle = 'black';
+            ctx.lineWidth = 1;
+            ctx.moveTo(0, originY);
+            ctx.lineTo(width, originY);
+            ctx.moveTo(originX, 0);
+            ctx.lineTo(originX, height);
+            ctx.stroke();
+
+            ctx.beginPath();
+            for (let i = 0; i <= width; i += 20) {
+                ctx.moveTo(i, originY - 4);
+                ctx.lineTo(i, originY + 4);
+            }
+            for (let j = 0; j <= height; j += 20) {
+                ctx.moveTo(originX - 4, j);
+                ctx.lineTo(originX + 4, j);
+            }
             ctx.stroke();
         }
 
-        // Lineáris függvény (y = mx + b)
         function linearisFuggveny(x, m, b) {
             return m * x + b;
         }
 
-        // Másodfokú függvény (y = ax² + bx + c)
         function masodfokuFuggveny(x, a, b, c) {
             return a * Math.pow(x, 2) + b * x + c;
         }
 
-        // Függvények kirajzolása (skálázott)
-        function rajzoljFuggvenyeket(m, b, a, b2, c) {
-            ctx.clearRect(0, 0, width, height); // Törli a korábbi tartalmat
-            rajzoljTengelyeket();
-
-            // Skálázás: keresünk egy megfelelő mértékegységet, hogy a függvények elférjenek
-            const scalingFactor = 10; // Skálázás mértéke, növeld, ha túl kicsi a függvény
-
-            // Lineáris függvény (kék)
+        function plotFunction(fn, color, scale) {
             ctx.beginPath();
-            ctx.strokeStyle = 'blue';
-            for (let x = -originX; x <= originX; x++) {
-                let y = linearisFuggveny(x / scalingFactor, m, b);  // Skálázzuk a X-ot
-                ctx.lineTo(originX + x, originY - y * scalingFactor);  // Skálázzuk az Y-ot
-            }
-            ctx.stroke();
-
-            // Másodfokú függvény (piros)
-            ctx.beginPath();
-            ctx.strokeStyle = 'red';
-            for (let x = -originX; x <= originX; x++) {
-                let y = masodfokuFuggveny(x / scalingFactor, a, b2, c); // Skálázzuk a X-ot
-                ctx.lineTo(originX + x, originY - y * scalingFactor);  // Skálázzuk az Y-ot
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            let started = false;
+            for (let px = -originX; px <= originX; px++) {
+                const xLogical = px / scale;
+                const yLogical = fn(xLogical);
+                const cx = originX + px;
+                const cy = originY - yLogical * scale;
+                if (!started) {
+                    ctx.moveTo(cx, cy);
+                    started = true;
+                } else {
+                    ctx.lineTo(cx, cy);
+                }
             }
             ctx.stroke();
         }
 
-        // Függvények frissítése gombnyomásra
+        function rajzoljFuggvenyeket(m, b, a, b2, c) {
+            ctx.clearRect(0, 0, width, height);
+            rajzoljTengelyeket();
+
+            const scale = 20;
+
+            plotFunction(x => linearisFuggveny(x, m, b), 'blue', scale);
+
+            plotFunction(x => masodfokuFuggveny(x, a, b2, c), 'red', scale);
+        }
+
         function rajzol() {
-            const m = parseFloat(document.getElementById('m').value);
-            const b = parseFloat(document.getElementById('b').value);
-            const a = parseFloat(document.getElementById('a').value);
-            const b2 = parseFloat(document.getElementById('b2').value);
-            const c = parseFloat(document.getElementById('c').value);
+            const m = parseFloat(document.getElementById('m').value) || 0;
+            const b = parseFloat(document.getElementById('b').value) || 0;
+            const a = parseFloat(document.getElementById('a').value) || 0;
+            const b2 = parseFloat(document.getElementById('b2').value) || 0;
+            const c = parseFloat(document.getElementById('c').value) || 0;
 
             rajzoljFuggvenyeket(m, b, a, b2, c);
         }
+
+        window.addEventListener('load', () => {
+            rajzoljTengelyeket();
+            rajzol();
+        });
     </script>
 </body>
 </html>
