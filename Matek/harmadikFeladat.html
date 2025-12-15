@@ -26,7 +26,7 @@
     <h1>1. és 2. fokú függvények ábrázolása</h1>
 
     <div class="input-container">
-        <h3>Adja meg az együtthatókat:</h3>
+        <h3>Adja meg az értékeket:</h3>
         <div>
             <label for="m">Lineáris függvény: y = mx + b</label><br>
             <label for="m">m:</label>
@@ -43,8 +43,15 @@
             <label for="c">c:</label>
             <input type="number" id="c" value="0" step="any">
         </div>
-        <button onclick="rajzol()">Frissítés</button>
-    </div>
+        <button onclick="rajzol()">Rajzol</button>
+        <button onclick="torles()">Törlés</button>
+        <div>
+            <input type="radio" name="gomb"  id="linearis" onchange="rajzollinearis()">lináris mutatása
+        </div>
+        <div>
+            <input type="radio" name="gomb" id="masodfoku" onchange="rajzolmasodfoku()">másodfokú mutatása
+        
+        </div>
 
     <canvas id="graph" width="500" height="500"></canvas>
 
@@ -57,7 +64,7 @@
         const originX = width / 2;
         const originY = height / 2;
 
-        function rajzoljTengelyeket() {
+        function tengelyrajz() {
             ctx.beginPath();
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 1;
@@ -87,7 +94,7 @@
             return a * Math.pow(x, 2) + b * x + c;
         }
 
-        function plotFunction(fn, color, scale) {
+        function oldalfunkcio(fn, color, scale) {
             ctx.beginPath();
             ctx.strokeStyle = color;
             ctx.lineWidth = 2;
@@ -106,16 +113,43 @@
             }
             ctx.stroke();
         }
+        function rajzollinearis() {
+            const linearisCheckbox = document.getElementById('linearis');
+            if (linearisCheckbox.checked) {
+                torles();
+                const m = parseFloat(document.getElementById('m').value) || 0;
+                const b = parseFloat(document.getElementById('b').value) || 0;
+                const scale = 20;
+                oldalfunkcio(x => linearisFuggveny(x, m, b), 'blue', scale);
+            } 
+            else {
+                torles();
+            }
+        }
+        function rajzolmasodfoku() {
+            const masodfokuCheckbox = document.getElementById('masodfoku');
+            if (masodfokuCheckbox.checked) {
+                torles();
+                const a = parseFloat(document.getElementById('a').value) || 0;
+                const b2 = parseFloat(document.getElementById('b2').value) || 0;
+                const c = parseFloat(document.getElementById('c').value) || 0;
+                const scale = 20;
+                oldalfunkcio(x => masodfokuFuggveny(x, a, b2, c), 'red', scale);
+            } else {
+                torles();
+                
+            }
+        }
 
         function rajzoljFuggvenyeket(m, b, a, b2, c) {
             ctx.clearRect(0, 0, width, height);
-            rajzoljTengelyeket();
+            tengelyrajz();
 
             const scale = 20;
 
-            plotFunction(x => linearisFuggveny(x, m, b), 'blue', scale);
+            oldalfunkcio(x => linearisFuggveny(x, m, b), 'blue', scale);
 
-            plotFunction(x => masodfokuFuggveny(x, a, b2, c), 'red', scale);
+            oldalfunkcio(x => masodfokuFuggveny(x, a, b2, c), 'red', scale);
         }
 
         function rajzol() {
@@ -127,10 +161,15 @@
 
             rajzoljFuggvenyeket(m, b, a, b2, c);
         }
+        function torles() {
+            ctx.clearRect(0, 0, width, height);
+            tengelyrajz();
+        }
 
         window.addEventListener('load', () => {
-            rajzoljTengelyeket();
+            tengelyrajz();
             rajzol();
+            torles();
         });
     </script>
 </body>
