@@ -10,7 +10,9 @@
   --heading-font: "Montserrat",  sans-serif;
   --nav-font: "Montserrat",  sans-serif;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root { 
   --background-color: #020c19; /* Background color for the entire website, including individual sections */

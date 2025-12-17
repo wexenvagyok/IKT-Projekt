@@ -26,6 +26,7 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+  
 
 </head>
 
@@ -55,7 +56,7 @@
   </header>
 
   <main class="main">
-
+    
     <!-- Hero Section -->
     <section id="hero" class="hero section">
 
@@ -64,7 +65,7 @@
           <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
             <div class="hero-content">
               <div class="hero-badge">
-                <span class="badge">✨ Funkciók</span>
+                <span class="badge" onclick="location.href='#celpont';" style="cursor:pointer;" >✨ Funkciók</span>
               </div>
 
               <p>A projekt pár matematikai feladat elvégzésére szolgál, a munkanapló megtekinthető az alábbi gombra kattintva</p>
@@ -95,14 +96,14 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <div><span class="description-title">Funkciók</span></div>
+        <div><span class="description-title" id="celpont">Funkciók</span></div>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-item">
+            <div class="service-item" onclick="window.location.href = 'elsoFeladat.html'">
               <div class="service-header">
                 <div class="icon-wrapper">
                   <i class="bi bi-triangle-half"></i>
@@ -119,7 +120,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item">
+            <div class="service-item" onclick="window.location.href = 'masodikFeladat.html'">
               <div class="service-header">
                 <div class="icon-wrapper">
                   <i class="bi bi-layout-text-window-reverse"></i>
@@ -135,7 +136,7 @@
           </div>
 
           <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="service-item">
+            <div class="service-item" onclick="window.location.href = 'harmadikFeladat.html'">
               <div class="service-header">
                 <div class="icon-wrapper">
                   <i class="bi bi-graph-up"></i>
