@@ -41,8 +41,17 @@
         }
         
         .input-container {
-            margin-bottom: 20px;
-        }
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input.form-control {
+    max-width: 300px;
+    width: auto; 
+    margin: 10px auto;
+    display: block;
+}
+
         input {
             margin: 5px;
         }
@@ -93,27 +102,27 @@
         <div>
             <label for="m">Lineáris függvény: y = mx + b</label><br>
             <label for="m">m:</label>
-            <input type="number" id="m" value="0" step="any">
+            <input type="number" id="m" value="0" step="any" class="form-control">
             <label for="b">b:</label>
-            <input type="number" id="b" value="0" step="any">
+            <input type="number" id="b" value="0" step="any" class="form-control">
         </div>
         <div>
             <label for="a">Másodfokú függvény: y = ax² + bx + c</label><br>
             <label for="a">a:</label>
-            <input type="number" id="a" value="0" step="any">
+            <input type="number" id="a" value="0" step="any" class="form-control">
             <label for="b2">b:</label>
-            <input type="number" id="b2" value="0" step="any">
+            <input type="number" id="b2" value="0" step="any" class="form-control">
             <label for="c">c:</label>
-            <input type="number" id="c" value="0" step="any">
+            <input type="number" id="c" value="0" step="any" class="form-control">
         </div>
-        <button onclick="rajzol()">Rajzol</button>
-        <button onclick="torles()">Törlés</button>
+        <button onclick="rajzol()" class="btn btn-primary">Rajzol</button>
+        <button onclick="torles()" class="btn btn-danger">Törlés</button>
         <div>
-            <input type="radio" name="gomb"  id="linearis" onchange="rajzollinearis()">lináris mutatása
+            <input type="radio" name="gomb"  id="linearis" onchange="rajzollinearis()" class="form-check-input">lináris mutatása
         </div>
         <div>
-            <input type="radio" name="gomb" id="masodfoku" onchange="rajzolmasodfoku()">másodfokú mutatása
-        
+            <input type="radio" name="gomb" id="masodfoku" onchange="rajzolmasodfoku()" class="form-check-input">másodfokú mutatása
+
         </div>
 
     <canvas id="graph" width="500" height="500" style="background-color: aliceblue;"></canvas>
