@@ -3227,3 +3227,20 @@ section,
     visibility: visible;
     opacity: 1;
 }
+  #graph {
+    border: 1px solid black;
+    display: block;
+    margin: 20px auto;
+    background-color: aliceblue;
+  }
+
+  .input-container-graph {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  input.form-control-graph {
+    max-width: 300px;
+    margin: 10px auto;
+    display: block;
+  }

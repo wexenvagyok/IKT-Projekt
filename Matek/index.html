@@ -10,7 +10,6 @@
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -44,9 +43,9 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="#hero" class="active">Főoldal</a></li>
-          <li><a href="./elsoFeladat.html">1. Feladat</a></li>
-          <li><a href="./masodikFeladat.html">2. Feladat</a></li>
-          <li><a href="./harmadikFeladat.html">3. Feladat</a></li>
+          <li><a href="#pitagorasz">1. Feladat</a></li>
+          <li><a href="#szogfuggvenyek">2. Feladat</a></li>
+          <li><a href="#fuggvenyek">3. Feladat</a></li>
           <li><a href="./negyedikFeladat.html">4. Feladat</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -168,6 +167,193 @@
       </div>
 
     </section><!-- /Services Section -->
+    <!-- Pitagorasz Section -->
+<section id="pitagorasz" class="services section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <div><span class="description-title">Pitagorasz-tétel</span></div>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+
+      <!-- Bemenet -->
+      <div class="col-lg-6 col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Adatok megadása</h3>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">a oldal</span>
+            <input type="number" class="form-control" id="aOldal" min="0">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">b oldal</span>
+            <input type="number" class="form-control" id="bOldal" min="0">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">c oldal</span>
+            <input type="number" class="form-control" id="cOldal" min="0">
+          </div>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="elsoFeladat()">
+              Futtatás
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eredmény -->
+      <div class="col-lg-6 col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Eredmény</h3>
+          <div class="hibauzenet"></div>
+          <p class="eredmeny">Az oldalak adatai:</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Szögfüggvények / 2. feladat -->
+<section id="szogfuggvenyek" class="services section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <div><span class="description-title">Szögfüggvények</span></div>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+
+      <!-- Bemenet -->
+      <div class="col-lg-6 col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Háromszög adatok megadása</h3>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">a oldal</span>
+            <input type="number" class="form-control" id="aOldalKetto" min="0">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">b oldal</span>
+            <input type="number" class="form-control" id="bOldalKetto" min="0">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">c oldal</span>
+            <input type="number" class="form-control" id="cOldalKetto" min="0">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">α szög</span>
+            <input type="number" class="form-control" id="alphaSzog" min="0" max="180">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">β szög</span>
+            <input type="number" class="form-control" id="betaSzog" min="0" max="180">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">γ szög</span>
+            <input type="number" class="form-control" id="gammaSzog" min="0" max="180">
+          </div>
+
+          <select id="valaszto" class="form-select mb-3">
+            <option value="sin">Sinus</option>
+            <option value="cos">Cosinus</option>
+            <option value="tan">Tangens</option>
+          </select>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="masodikFeladat()">
+              Futtatás
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Eredmény -->
+      <div class="col-lg-6 col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Eredmény</h3>
+
+          <p id="oldalakEredmeny">Az oldalak adatai:</p>
+          <p id="szogekEredmeny">A szögek adatai:</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Függvények / 3. feladat -->
+<section id="fuggvenyek" class="services section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <div><span class="description-title">Függvények</span></div>
+  </div>
+
+  <div class="container input-container" data-aos="fade-up">
+
+    <h3>1. és 2. fokú függvények ábrázolása</h3>
+
+    <!-- Lineáris -->
+    <div class="mb-4">
+      <p><strong>Lineáris függvény:</strong> y = mx + b</p>
+
+      <label>m:</label>
+      <input type="number" id="m" value="0" step="any" class="form-control">
+
+      <label>b:</label>
+      <input type="number" id="b" value="0" step="any" class="form-control">
+    </div>
+
+    <!-- Másodfokú -->
+    <div class="mb-4">
+      <p><strong>Másodfokú függvény:</strong> y = ax² + bx + c</p>
+
+      <label>a:</label>
+      <input type="number" id="a" value="0" step="any" class="form-control">
+
+      <label>b:</label>
+      <input type="number" id="b2" value="0" step="any" class="form-control">
+
+      <label>c:</label>
+      <input type="number" id="c" value="0" step="any" class="form-control">
+    </div>
+
+    <!-- Gombok -->
+    <div class="mb-3">
+      <button onclick="rajzol()" class="btn btn-primary me-2">Rajzol</button>
+      <button onclick="torles()" class="btn btn-danger">Törlés</button>
+    </div>
+
+    <!-- Rádiógombok -->
+    <div class="mb-3">
+      <input type="radio" name="gomb" id="linearis" onchange="rajzollinearis()">
+      <label for="linearis">Lineáris megjelenítése</label>
+    </div>
+
+    <div class="mb-3">
+      <input type="radio" name="gomb" id="masodfoku" onchange="rajzolmasodfoku()">
+      <label for="masodfoku">Másodfokú megjelenítése</label>
+    </div>
+
+    <!-- Vászon -->
+    <canvas id="graph" width="500" height="500"></canvas>
+
+  </div>
+
+</section>
+
 
   </main>
 
@@ -183,11 +369,6 @@
         </div>
 
       </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">MATEMATIKA</strong> <span>All Rights Reserved</span></p>
-
     </div>
 
   </footer>
@@ -207,7 +388,9 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="assets/js/elso.js"></script>
+  <script src="assets/js/masodik.js"></script>
+  <script src="assets/js/harmadik.js"></script>
 </body>
 
 </html>

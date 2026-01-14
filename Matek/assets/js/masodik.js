@@ -11,9 +11,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const isNum = v => typeof v === 'number' && !Number.isNaN(v) && v !== Infinity && v !== -Infinity;
 
     
-    let a = parseFloat(document.getElementById('aOldal')?.value);
-    let b = parseFloat(document.getElementById('bOldal')?.value);
-    let c = parseFloat(document.getElementById('cOldal')?.value);
+    let a = parseFloat(document.getElementById('aOldalKetto')?.value);
+    let b = parseFloat(document.getElementById('bOldalKetto')?.value);
+    let c = parseFloat(document.getElementById('cOldalKetto')?.value);
     let A = parseFloat(document.getElementById('alphaSzog')?.value);
     let B = parseFloat(document.getElementById('betaSzog')?.value);
     let G = parseFloat(document.getElementById('gammaSzog')?.value);
