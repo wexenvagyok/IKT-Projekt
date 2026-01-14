@@ -35,8 +35,6 @@
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
         <h1 class="sitename">MATEK</h1><span>.</span><h1 class="sitename">WEB</h1>
       </a>
 
@@ -90,83 +88,6 @@
       </div>
     </section><!-- /Hero Section -->
 
-    <!-- Services Section -->
-    <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <div><span class="description-title" id="celpont">Funkciók</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="150">
-            <div class="service-item" onclick="window.location.href = 'elsoFeladat.html'">
-              <div class="service-header">
-                <div class="icon-wrapper">
-                  <i class="bi bi-triangle-half"></i>
-                </div>
-                <span class="badge-popular">V1.0</span>
-              </div>
-              <h3>Pitagorasz-tétel</h3>
-              <ul class="feature-list">
-                <li><i class="bi bi-check-circle"></i> Két oldalból harmadik számítás</li>
-                <li><i class="bi bi-check-circle"></i> Derékszög megállapítás</li>
-                <li><i class="bi bi-check-circle"></i> Hibakezelés</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item" onclick="window.location.href = 'masodikFeladat.html'">
-              <div class="service-header">
-                <div class="icon-wrapper">
-                  <i class="bi bi-layout-text-window-reverse"></i>
-                </div>
-              </div>
-              <h3>Szögfüggvények</h3>
-              <ul class="feature-list">
-                <li><i class="bi bi-check-circle"></i> Háromszög oldalainak kiszámítása</li>
-                <li><i class="bi bi-check-circle"></i> Háromszög szögeinek kiszámítása</li>
-                <li><i class="bi bi-check-circle"></i> Hibakezelés</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="250">
-            <div class="service-item" onclick="window.location.href = 'harmadikFeladat.html'">
-              <div class="service-header">
-                <div class="icon-wrapper">
-                  <i class="bi bi-graph-up"></i>
-                </div>
-              </div>
-              <h3>Függvények</h3>
-              <ul class="feature-list">
-                <li><i class="bi bi-check-circle"></i> Elsőfokú függvények kezelése</li>
-                <li><i class="bi bi-check-circle"></i> Másodfokú függvények kezelése</li>
-                <li><i class="bi bi-check-circle"></i> Vizuális megjelenítés</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item">
-              <div class="service-header">
-                <div class="icon-wrapper">
-                  <i class="bi bi-layout-text-window-reverse"></i>
-                </div>
-              </div>
-              <h3>Sorozatok</h3>
-              <ul class="feature-list">
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section><!-- /Services Section -->
     <!-- Pitagorasz Section -->
 <section id="pitagorasz" class="services section">
 
@@ -301,58 +222,134 @@
     <div><span class="description-title">Függvények</span></div>
   </div>
 
-  <div class="container input-container" data-aos="fade-up">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4 justify-content-center">
 
-    <h3>1. és 2. fokú függvények ábrázolása</h3>
+      <!-- Bemenet -->
+      <div class="col-lg-6 col-md-8" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Adatok megadása</h3>
 
-    <!-- Lineáris -->
-    <div class="mb-4">
-      <p><strong>Lineáris függvény:</strong> y = mx + b</p>
+          <p><strong>Lineáris függvény:</strong> y = mx + b</p>
+          <div class="input-group mb-3">
+            <span class="input-group-text">m</span>
+            <input type="number" id="m" value="0" step="any" class="form-control">
+          </div>
 
-      <label>m:</label>
-      <input type="number" id="m" value="0" step="any" class="form-control">
+          <div class="input-group mb-3">
+            <span class="input-group-text">b</span>
+            <input type="number" id="b" value="0" step="any" class="form-control">
+          </div>
 
-      <label>b:</label>
-      <input type="number" id="b" value="0" step="any" class="form-control">
+          <hr>
+
+          <p><strong>Másodfokú függvény:</strong> y = ax² + bx + c</p>
+          <div class="input-group mb-3">
+            <span class="input-group-text">a</span>
+            <input type="number" id="a" value="0" step="any" class="form-control">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">b</span>
+            <input type="number" id="b2" value="0" step="any" class="form-control">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">c</span>
+            <input type="number" id="c" value="0" step="any" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <input type="radio" name="gomb" id="linearis" onchange="rajzollinearis()">
+            <label for="linearis">Lineáris megjelenítése</label>
+          </div>
+
+          <div class="mb-3">
+            <input type="radio" name="gomb" id="masodfoku" onchange="rajzolmasodfoku()">
+            <label for="masodfoku">Másodfokú megjelenítése</label>
+          </div>
+
+          <div class="hero-buttons">
+            <button onclick="rajzol()" class="btn btn-primary me-2">
+              Rajzol
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+            <button onclick="torles()" class="btn btn-danger">
+              Törlés
+            </button>
+          </div>
+
+        </div>
+      </div>
+
     </div>
 
-    <!-- Másodfokú -->
-    <div class="mb-4">
-      <p><strong>Másodfokú függvény:</strong> y = ax² + bx + c</p>
-
-      <label>a:</label>
-      <input type="number" id="a" value="0" step="any" class="form-control">
-
-      <label>b:</label>
-      <input type="number" id="b2" value="0" step="any" class="form-control">
-
-      <label>c:</label>
-      <input type="number" id="c" value="0" step="any" class="form-control">
+    <!-- Grafikon külön alul -->
+    <div class="row justify-content-center mt-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-lg-6 col-md-8 text-center">
+        <h3>Grafikon</h3>
+        <canvas id="graph" width="500" height="500"></canvas>
+      </div>
     </div>
-
-    <!-- Gombok -->
-    <div class="mb-3">
-      <button onclick="rajzol()" class="btn btn-primary me-2">Rajzol</button>
-      <button onclick="torles()" class="btn btn-danger">Törlés</button>
-    </div>
-
-    <!-- Rádiógombok -->
-    <div class="mb-3">
-      <input type="radio" name="gomb" id="linearis" onchange="rajzollinearis()">
-      <label for="linearis">Lineáris megjelenítése</label>
-    </div>
-
-    <div class="mb-3">
-      <input type="radio" name="gomb" id="masodfoku" onchange="rajzolmasodfoku()">
-      <label for="masodfoku">Másodfokú megjelenítése</label>
-    </div>
-
-    <!-- Vászon -->
-    <canvas id="graph" width="500" height="500"></canvas>
 
   </div>
 
 </section>
+
+<!-- Számtani sorozat / 4. feladat -->
+<section id="szamtani" class="services section">
+
+  <div class="container section-title" data-aos="fade-up">
+    <div><span class="description-title">Számtani sorozat</span></div>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gy-4">
+
+      <!-- Bemenet -->
+      <div class="col-lg-6 col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Adatok megadása</h3>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">a₁</span>
+            <input type="number" id="elsoElem" class="form-control" step="any" placeholder="(első elem)">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">d</span>
+            <input type="number" id="kulonbseg" class="form-control" step="any" placeholder="(lépés mértéke)">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">n</span>
+            <input type="number" id="elemszam" class="form-control" min="1" placeholder="(darab)">
+          </div>
+
+          <div class="hero-buttons">
+            <button class="btn btn-primary" onclick="szamtaniSorozat()">
+              Számolás
+              <i class="bi bi-arrow-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eredmény -->
+      <div class="col-lg-6 col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="150">
+        <div class="service-item">
+          <h3>Eredmény</h3>
+          <div id="szamtaniEredmeny">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+
 
 
   </main>
@@ -392,6 +389,7 @@
   <script src="assets/js/elso.js"></script>
   <script src="assets/js/masodik.js"></script>
   <script src="assets/js/harmadik.js"></script>
+  <script src="assets/js/negyedik.js"></script>
 </body>
 
 </html>
